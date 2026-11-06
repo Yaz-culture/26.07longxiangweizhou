@@ -1,7 +1,7 @@
 // Garden Gnome Software - Skin
 // Pano2VR 7.1.8/20986
 // Filename: navigation.ggsk
-// Generated 2026-11-05T16:55:59
+// Generated 2026-11-06T13:47:06
 
 function pano2vrSkin(player,base) {
 	var me=this;
@@ -122,29 +122,59 @@ function pano2vrSkin(player,base) {
 		this.ggCurrentTime=new Date().getTime();
 		el=me._container_1=document.createElement('div');
 		el.ggId="Container 1";
+		el.ggDy=-4;
 		el.ggParameter={ rx:0,ry:0,a:0,sx:1,sy:1,def:'' };
 		el.ggVisible=true;
 		el.className="ggskin ggskin_container ";
 		el.ggType='container';
 		hs ='';
-		hs+='bottom : 18px;';
 		hs+='height : 455px;';
 		hs+='position : absolute;';
 		hs+='right : -486px;';
+		hs+='top : calc(50% - ((455px + 0px) / 2) - 4px);';
 		hs+='visibility : inherit;';
-		hs+='width : 532px;';
+		hs+='width : 530px;';
 		hs+='pointer-events:none;';
 		el.setAttribute('style',hs);
-		el.style.transformOrigin='50% 50%';
+		el.style.transformOrigin='100% 50%';
 		me._container_1.ggIsActive=function() {
 			return false;
 		}
 		el.ggElementNodeId=function() {
 			return player.getCurrentNode();
 		}
+		me._container_1.logicBlock_scaling = function() {
+			var newLogicStateScaling;
+			if (
+				((player.getViewerSize(true).width < 768))
+			)
+			{
+				newLogicStateScaling = 0;
+			}
+			else {
+				newLogicStateScaling = -1;
+			}
+			if (me._container_1.ggCurrentLogicStateScaling != newLogicStateScaling) {
+				me._container_1.ggCurrentLogicStateScaling = newLogicStateScaling;
+				me._container_1.style.transition='transform 1000ms ease 0ms';
+				if (me._container_1.ggCurrentLogicStateScaling == 0) {
+					me._container_1.ggParameter.sx = 0.5;
+					me._container_1.ggParameter.sy = 0.5;
+					me._container_1.style.transform=parameterToTransform(me._container_1.ggParameter);
+					setTimeout(function() {skin.updateSize(me._container_1);}, 1050);
+				}
+				else {
+					me._container_1.ggParameter.sx = 1;
+					me._container_1.ggParameter.sy = 1;
+					me._container_1.style.transform=parameterToTransform(me._container_1.ggParameter);
+					setTimeout(function() {skin.updateSize(me._container_1);}, 1050);
+				}
+			}
+		}
+		me._container_1.logicBlock_scaling();
 		me._container_1.onmouseenter=function (e) {
 			me._container_1.style.transition='none';
-			me._container_1.ggParameter.rx+=-488;me._container_1.ggParameter.ry+=0;
+			me._container_1.ggParameter.rx+=-426;me._container_1.ggParameter.ry+=0;
 			me._container_1.style.transform=parameterToTransform(me._container_1.ggParameter);
 			me.elementMouseOver['container_1']=true;
 		}
@@ -172,7 +202,7 @@ function pano2vrSkin(player,base) {
 		hs+='color : #000000;';
 		hs+='height : 131px;';
 		hs+='position : absolute;';
-		hs+='right : 483px;';
+		hs+='right : 480px;';
 		hs+='visibility : inherit;';
 		hs+='width : 47px;';
 		hs+='pointer-events:auto;';
@@ -233,12 +263,12 @@ function pano2vrSkin(player,base) {
 		el.className="ggskin ggskin_image ";
 		el.ggType='image';
 		hs ='';
-		hs+='height : 455px;';
-		hs+='left : 47px;';
+		hs+='bottom : 26px;';
+		hs+='height : 395px;';
 		hs+='position : absolute;';
-		hs+='top : 1px;';
+		hs+='right : 60px;';
 		hs+='visibility : inherit;';
-		hs+='width : 488px;';
+		hs+='width : 423px;';
 		hs+='pointer-events:auto;';
 		el.setAttribute('style',hs);
 		el.style.transformOrigin='50% 50%';
@@ -267,9 +297,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 422px;';
+		hs+='left : 365px;';
 		hs+='position : absolute;';
-		hs+='top : 248px;';
+		hs+='top : 216px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -302,9 +332,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 422px;';
+		hs+='left : 365px;';
 		hs+='position : absolute;';
-		hs+='top : 167px;';
+		hs+='top : 147px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -337,9 +367,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 328px;';
+		hs+='left : 281px;';
 		hs+='position : absolute;';
-		hs+='top : 167px;';
+		hs+='top : 147px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -372,9 +402,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 240px;';
+		hs+='left : 203px;';
 		hs+='position : absolute;';
-		hs+='top : 167px;';
+		hs+='top : 147px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -407,9 +437,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 141px;';
+		hs+='left : 118px;';
 		hs+='position : absolute;';
-		hs+='top : 167px;';
+		hs+='top : 147px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -442,9 +472,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 51px;';
+		hs+='left : 38px;';
 		hs+='position : absolute;';
-		hs+='top : 167px;';
+		hs+='top : 147px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -477,9 +507,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 51px;';
+		hs+='left : 38px;';
 		hs+='position : absolute;';
-		hs+='top : 73px;';
+		hs+='top : 61px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -512,9 +542,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 141px;';
+		hs+='left : 118px;';
 		hs+='position : absolute;';
-		hs+='top : 73px;';
+		hs+='top : 61px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -547,9 +577,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 240px;';
+		hs+='left : 203px;';
 		hs+='position : absolute;';
-		hs+='top : 73px;';
+		hs+='top : 61px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -582,9 +612,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 328px;';
+		hs+='left : 281px;';
 		hs+='position : absolute;';
-		hs+='top : 73px;';
+		hs+='top : 61px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -617,9 +647,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 328px;';
+		hs+='left : 281px;';
 		hs+='position : absolute;';
-		hs+='top : 266px;';
+		hs+='top : 233px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -652,9 +682,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 240px;';
+		hs+='left : 205px;';
 		hs+='position : absolute;';
-		hs+='top : 266px;';
+		hs+='top : 233px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -687,9 +717,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 328px;';
+		hs+='left : 281px;';
 		hs+='position : absolute;';
-		hs+='top : 358px;';
+		hs+='top : 319px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -722,9 +752,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 141px;';
+		hs+='left : 118px;';
 		hs+='position : absolute;';
-		hs+='top : 268px;';
+		hs+='top : 235px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -767,12 +797,12 @@ function pano2vrSkin(player,base) {
 		el.className="ggskin ggskin_image ";
 		el.ggType='image';
 		hs ='';
-		hs+='bottom : 0px;';
-		hs+='height : 455px;';
+		hs+='bottom : 27px;';
+		hs+='height : 395px;';
 		hs+='position : absolute;';
-		hs+='right : -3px;';
+		hs+='right : 60px;';
 		hs+='visibility : inherit;';
-		hs+='width : 488px;';
+		hs+='width : 423px;';
 		hs+='pointer-events:auto;';
 		el.setAttribute('style',hs);
 		el.style.transformOrigin='50% 50%';
@@ -801,9 +831,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 356px;';
+		hs+='left : 305px;';
 		hs+='position : absolute;';
-		hs+='top : 117px;';
+		hs+='top : 104px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -836,9 +866,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 391px;';
+		hs+='left : 336px;';
 		hs+='position : absolute;';
-		hs+='top : 134px;';
+		hs+='top : 111px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -871,9 +901,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 343px;';
+		hs+='left : 295px;';
 		hs+='position : absolute;';
-		hs+='top : 85px;';
+		hs+='top : 75px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -906,9 +936,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 395px;';
+		hs+='left : 336px;';
 		hs+='position : absolute;';
-		hs+='top : 167px;';
+		hs+='top : 145px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -941,9 +971,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 452px;';
+		hs+='left : 390px;';
 		hs+='position : absolute;';
-		hs+='top : 88px;';
+		hs+='top : 69px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -976,9 +1006,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 452px;';
+		hs+='left : 390px;';
 		hs+='position : absolute;';
-		hs+='top : 117px;';
+		hs+='top : 98px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -1011,9 +1041,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 452px;';
+		hs+='left : 390px;';
 		hs+='position : absolute;';
-		hs+='top : 141px;';
+		hs+='top : 121px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -1046,9 +1076,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 452px;';
+		hs+='left : 390px;';
 		hs+='position : absolute;';
-		hs+='top : 170px;';
+		hs+='top : 145px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -1081,9 +1111,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 429px;';
+		hs+='left : 380px;';
 		hs+='position : absolute;';
-		hs+='top : 17px;';
+		hs+='top : 16px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -1116,9 +1146,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 380px;';
+		hs+='left : 340px;';
 		hs+='position : absolute;';
-		hs+='top : 17px;';
+		hs+='top : 16px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -1151,9 +1181,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 338px;';
+		hs+='left : 297px;';
 		hs+='position : absolute;';
-		hs+='top : 18px;';
+		hs+='top : 17px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -1186,9 +1216,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 357px;';
+		hs+='left : 314px;';
 		hs+='position : absolute;';
-		hs+='top : 52px;';
+		hs+='top : 47px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -1221,9 +1251,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 402px;';
+		hs+='left : 361px;';
 		hs+='position : absolute;';
-		hs+='top : 52px;';
+		hs+='top : 47px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -1256,9 +1286,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 379px;';
+		hs+='left : 338px;';
 		hs+='position : absolute;';
-		hs+='top : 53px;';
+		hs+='top : 47px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -1291,9 +1321,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 124px;';
+		hs+='left : 105px;';
 		hs+='position : absolute;';
-		hs+='top : 86px;';
+		hs+='top : 75px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -1326,9 +1356,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 149px;';
+		hs+='left : 129px;';
 		hs+='position : absolute;';
-		hs+='top : 86px;';
+		hs+='top : 75px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -1361,9 +1391,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 174px;';
+		hs+='left : 152px;';
 		hs+='position : absolute;';
-		hs+='top : 86px;';
+		hs+='top : 75px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -1396,9 +1426,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 200px;';
+		hs+='left : 172px;';
 		hs+='position : absolute;';
-		hs+='top : 86px;';
+		hs+='top : 75px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -1431,9 +1461,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 226px;';
+		hs+='left : 194px;';
 		hs+='position : absolute;';
-		hs+='top : 86px;';
+		hs+='top : 75px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -1466,9 +1496,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 251px;';
+		hs+='left : 217px;';
 		hs+='position : absolute;';
-		hs+='top : 86px;';
+		hs+='top : 75px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -1501,9 +1531,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 275px;';
+		hs+='left : 240px;';
 		hs+='position : absolute;';
-		hs+='top : 86px;';
+		hs+='top : 75px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -1536,9 +1566,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 300px;';
+		hs+='left : 262px;';
 		hs+='position : absolute;';
-		hs+='top : 86px;';
+		hs+='top : 75px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -1571,9 +1601,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 124px;';
+		hs+='left : 105px;';
 		hs+='position : absolute;';
-		hs+='top : 13px;';
+		hs+='top : 15px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -1606,9 +1636,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 149px;';
+		hs+='left : 129px;';
 		hs+='position : absolute;';
-		hs+='top : 13px;';
+		hs+='top : 15px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -1641,9 +1671,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 174px;';
+		hs+='left : 152px;';
 		hs+='position : absolute;';
-		hs+='top : 13px;';
+		hs+='top : 15px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -1676,9 +1706,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 200px;';
+		hs+='left : 172px;';
 		hs+='position : absolute;';
-		hs+='top : 13px;';
+		hs+='top : 15px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -1711,9 +1741,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 226px;';
+		hs+='left : 194px;';
 		hs+='position : absolute;';
-		hs+='top : 23px;';
+		hs+='top : 20px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -1746,9 +1776,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 251px;';
+		hs+='left : 217px;';
 		hs+='position : absolute;';
-		hs+='top : 23px;';
+		hs+='top : 20px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -1781,9 +1811,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 275px;';
+		hs+='left : 240px;';
 		hs+='position : absolute;';
-		hs+='top : 23px;';
+		hs+='top : 20px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -1816,9 +1846,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 300px;';
+		hs+='left : 262px;';
 		hs+='position : absolute;';
-		hs+='top : 23px;';
+		hs+='top : 20px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -1851,9 +1881,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 71px;';
+		hs+='left : 59px;';
 		hs+='position : absolute;';
-		hs+='top : 20px;';
+		hs+='top : 15px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -1886,9 +1916,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 95px;';
+		hs+='left : 81px;';
 		hs+='position : absolute;';
-		hs+='top : 20px;';
+		hs+='top : 15px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -1921,9 +1951,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 82px;';
+		hs+='left : 76px;';
 		hs+='position : absolute;';
-		hs+='top : 54px;';
+		hs+='top : 51px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -1957,9 +1987,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 64px;';
+		hs+='left : 114px;';
 		hs+='position : absolute;';
-		hs+='top : 368px;';
+		hs+='top : 276px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -2000,9 +2030,9 @@ function pano2vrSkin(player,base) {
 		el.ggType='mark';
 		hs ='';
 		hs+='height : 0px;';
-		hs+='left : 64px;';
+		hs+='left : 114px;';
 		hs+='position : absolute;';
-		hs+='top : 368px;';
+		hs+='top : 276px;';
 		hs+='visibility : inherit;';
 		hs+='width : 0px;';
 		hs+='pointer-events:auto;';
@@ -2033,6 +2063,7 @@ function pano2vrSkin(player,base) {
 		}
 		me._container_1.appendChild(me._switch5f);
 		me.divSkin.appendChild(me._container_1);
+		me._container_1.logicBlock_scaling();
 		me.elementMouseOver['container_1']=false;
 		var clonedNormalElement = new SkinElement_image_2_Class(this,me.__4foyers);
 		me.__4foyers__normal = clonedNormalElement._image_2;
@@ -3455,6 +3486,9 @@ function pano2vrSkin(player,base) {
 		for (var i = 0; i < me._switch5f.childNodes.length; i++) {
 			me._switch5f.ggMarkerInstances.push(me._switch5f.childNodes[i]);
 		}
+		player.addListener('sizechanged', function(event) {
+			me._container_1.logicBlock_scaling();
+		});
 	};
 	function SkinHotspotClass_click_here(parentScope,hotspot) {
 		var me=this;
